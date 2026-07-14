@@ -7,9 +7,10 @@
     <meta name="description" content="">
     <title>회원가입 | 마켓컬리</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/join.css">
+    <link rel="stylesheet" href="./styles/reset.css"><!-- 초기화 -->
+    <link rel="stylesheet" href="./styles/var.css"><!-- 변수생성 -->
+    <link rel="stylesheet" href="./styles/index.css"><!-- 디자인1 -->
+    <link rel="stylesheet" href="./styles/join.css"><!-- 디자인2 -->
     <script src="./scripts/join.js"></script>
 </head>
 <body>
@@ -57,35 +58,35 @@
                     <!-- -----------------------------아이디~이메일 -->
                     <dt>아이디<span class="important">*</span></dt>
                     <dd>
-                        <input type="text" placeholder="" name="" id="" required autofocus>
-                        <button type="" id="">중복확인</button>
+                        <input type="text" placeholder="아이디를 입력해주세요." name="user_id" id="user_id" required autofocus>
+                        <button type="button" id="duplicate_chk_btn">중복확인</button>
                     </dd>
                     <dt>비밀번호<span class="important">*</span></dt>
                     <dd>
-                        <input type="password" name="" id="" placeholder="" required>
+                        <input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력해주세요." required>
                     </dd>
                     <dt>비밀번호확인<span class="important">*</span></dt>
                     <dd>
-                        <input type="password" name="" id="" placeholder="" required>
+                        <input type="password" name="user_pw_chk" id="user_pw_chk" placeholder="비밀번호를 한번 더 입력해주세요." required>
                     </dd>
                     <dt>이름<span class="important">*</span></dt>
                     <dd>
-                        <input type="text" name="" id="" placeholder="" required>
+                        <input type="text" name="user_name" id="user_name" placeholder="이름을 입력해주세요" required>
                     </dd>
                     <dt>이메일<span class="important">*</span></dt>
                     <dd>
-                        <input type="email" name="" id="" placeholder="" required>
+                        <input type="email" name="user_email" id="user_email" placeholder="예) abc@web.com" required>
                     </dd>
                     <!-- -----------------------------휴대폰 -->
                     <dt>휴대폰<span class="important">*</span></dt>
                     <dd>
-                        <select name="" id="">
+                        <select name="agency" id="agency">
                             <option value="kt">KT</option>
                             <option value="skt">SKT</option>
                             <option value="lgu">LGU+</option>
                         </select>
-                        <input type="number" name="" id="" placeholder="">
-                        <button type="button" id="">인증번호확인</button>
+                        <input type="number" name="user_num" id="user_num" placeholder="숫자만 입력해주세요 예)01012345678">
+                        <button type="button" id="authentication_chk_btn">인증번호확인</button>
                     </dd>
                     <!-- -----------------------------주소 -->
                     <dt>주소<span class="important">*</span></dt>
@@ -96,10 +97,23 @@
                     <!-- -----------------------------성별 -->
                     <dt>성별</dt>
                     <dd><!-- 선택(radio) name이 값이 아닌 서버그룹명 -->
-                        <input type="radio" name="" id="" value="">
-                        <label for="">남자</label>
+                        <input type="radio" name="gender" id="male" value="male">
+                        <label for="male">남자</label>
+                        <input type="radio" name="gender" id="female" value="female" checked>
+                        <!-- 같은 그룹(선택양식의 name) 기준으로 checked는 주 고객(페르소나)에 맞춰서 기본선택상태 권장 -->
+                        <label for="female">여자</label>
+                        <input type="radio" name="gender" id="gender_none" value="gender_none">
+                        <label for="gender_none">선택안함</label>
                     </dd>
                     <!-- -----------------------------생년월일 -->
+                    <dt>생년월일</dt>
+                    <dd>
+                        <ul class="birthday">
+                            <li><input type="text" name="user_year" id="user_year" placeholder="YYYY"></li>
+                            <li><input type="text" name="user_month" id="user_month" placeholder="MM"></li>
+                            <li><input type="text" name="user_day" id="user_day" placeholder="DD"></li>
+                        </ul>
+                    </dd>
                 </dl>
                 <p><button type="button" id="join_btn">가입하기</button></p>
             </form>
